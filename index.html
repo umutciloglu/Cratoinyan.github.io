@@ -2,142 +2,215 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Red+Hat+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
     <title>Umut Çiloğlu</title>
+    <meta name="description" content="Umut Çiloğlu, software developer focused on backend development.">
+    <meta property="og:title" content="Umut Çiloğlu">
+    <meta property="og:description" content="Software developer, backend. Chaotic neutral.">
+    <meta property="og:url" content="https://www.umutciloglu.dev/">
+    <meta property="og:type" content="website">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 2 29 9.5v13L16 30 3 22.5v-13z' fill='%237d1d16'/%3E%3Cpath d='M16 7 24 21H8z' fill='none' stroke='%23f2ece0' stroke-width='2'/%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya+SC:wght@500;700&family=Alegreya+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --page: #d5dcdf;
+            --card: #f2ece0;
+            --ink: #2a1f17;
+            --red: #7d1d16;
+            --rule: #9c2b1f;
+            --shadow: rgba(20, 30, 34, .25);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --page: #1f2a2e;
+                --shadow: rgba(0, 0, 0, .45);
+                color-scheme: dark;
+            }
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            padding: clamp(1rem, 5vw, 4rem) 1rem;
+            display: grid;
+            place-items: center;
+            background: var(--page);
+            font-family: 'Alegreya Sans', system-ui, sans-serif;
+            font-size: 1.0625rem;
+            line-height: 1.45;
+        }
+
+        /* Top and bottom bars mimic the 5e stat block border so the card reads as a printed page. */
+        .stat-block {
+            width: 100%;
+            max-width: 36rem;
+            padding: 1.5rem clamp(1rem, 4vw, 1.75rem);
+            background: var(--card);
+            color: var(--ink);
+            border-top: 5px solid var(--red);
+            border-bottom: 5px solid var(--red);
+            box-shadow: 0 12px 32px var(--shadow);
+        }
+
+        h1, h2 {
+            font-family: 'Alegreya SC', Georgia, serif;
+            color: var(--red);
+            margin: 0;
+        }
+
+        h1 {
+            font-size: clamp(1.9rem, 6vw, 2.4rem);
+            line-height: 1;
+        }
+
+        h2 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin-top: 1rem;
+            margin-bottom: .35rem;
+            border-bottom: 1px solid var(--red);
+        }
+
+        p {
+            margin: 0 0 .4rem;
+        }
+
+        .type {
+            font-style: italic;
+            margin-top: .15rem;
+        }
+
+        .taper {
+            height: 5px;
+            margin: .65rem 0;
+            background: var(--rule);
+            clip-path: polygon(0 0, 100% 50%, 0 100%);
+        }
+
+        .line b {
+            color: var(--red);
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: .25rem;
+            margin: 0;
+            text-align: center;
+        }
+
+        .stats div {
+            display: grid;
+        }
+
+        .stats dt {
+            color: var(--red);
+            font-weight: 700;
+            font-size: .85rem;
+            letter-spacing: .06em;
+        }
+
+        .stats dd {
+            margin: 0;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .act b {
+            font-style: italic;
+        }
+
+        .summon {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .5rem 1.25rem;
+        }
+
+        .summon a {
+            display: inline-flex;
+            align-items: center;
+            gap: .4rem;
+            color: var(--red);
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .summon a:hover {
+            text-decoration: underline;
+        }
+
+        .summon svg {
+            width: 1.1rem;
+            height: 1.1rem;
+            fill: currentColor;
+        }
+
+        a:focus-visible {
+            outline: 2px solid var(--red);
+            outline-offset: 2px;
+        }
+
+        @media (max-width: 30rem) {
+            .stats {
+                grid-template-columns: repeat(3, 1fr);
+                row-gap: .5rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <header class="header">
-        <h1 class="name">Umut Çiloğlu</h1>
-        <h2 class="title">Software Developer</h2>
-    </header>
-    <div class="about">
-        <div class="about-div">
-            <h2 class="about-h2">ABOUT ME</h2>
-            
-            <p class="about-text">I'm a Junior Software Developer. I'm mostly focused on backend development.</p>
-            <p class="about-text">I'm interested in TTRPGs, video games. I spend my time working on my hobbies and looking up new technologies. 
-                I try to make small programs about any technology that catches my interest.
-            </p>
+    <main class="stat-block">
+        <h1>Umut Çiloğlu</h1>
+        <p class="type">Medium humanoid (developer), chaotic neutral</p>
 
+        <div class="taper"></div>
+        <p class="line"><b>Class</b> Software Developer (Backend)</p>
+        <p class="line"><b>Languages</b> Turkish, English</p>
+        <p class="line"><b>Habitat</b> Terminals, databases, game tables</p>
+
+        <div class="taper"></div>
+        <dl class="stats">
+            <div><dt>STR</dt><dd>10 (+0)</dd></div>
+            <div><dt>DEX</dt><dd>10 (+0)</dd></div>
+            <div><dt>CON</dt><dd>10 (+0)</dd></div>
+            <div><dt>INT</dt><dd>13 (+1)</dd></div>
+            <div><dt>WIS</dt><dd>12 (+1)</dd></div>
+            <div><dt>CHA</dt><dd>10 (+0)</dd></div>
+        </dl>
+
+        <div class="taper"></div>
+        <p class="act"><b>Tinkerer.</b> When a new technology catches Umut's interest, Umut builds a small program with it before the next long rest.</p>
+        <p class="act"><b>Off the Clock.</b> Umut has a riding speed of 120 ft. on a motorcycle, used mostly to reach the next TTRPG session. Between sessions, Umut plays video games.</p>
+
+        <h2>Actions</h2>
+        <p class="act"><b>Start a Hobby Project.</b> Umut picks a new technology and opens an empty repository. The project gains 1d20 commits of pure enthusiasm.</p>
+        <p class="act"><b>Abandon the Hobby Project (Recharge 5–6).</b> The repository goes silent. Umut is freed from it and can immediately use Start a Hobby Project again.</p>
+
+        <h2>Legendary Actions</h2>
+        <p>Umut can take 3 legendary actions, choosing from the options below. Spent actions are regained at the start of each workday.</p>
+        <p class="act"><b>Drink Coffee.</b> Umut regains 1d8 + 2 focus and has advantage on the next debugging check.</p>
+
+        <h2>Summon</h2>
+        <div class="summon">
+            <a href="https://github.com/umutciloglu" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+                GitHub
+            </a>
+            <a href="https://www.linkedin.com/in/umutciloglu/" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M0 1.15C0 .52.52 0 1.18 0h13.64C15.48 0 16 .52 16 1.15v13.7c0 .63-.52 1.15-1.18 1.15H1.18C.52 16 0 15.48 0 14.85V1.15zM4.94 13.4V6.17h-2.4v7.23h2.4zM3.74 5.18c.84 0 1.36-.55 1.36-1.25-.02-.71-.52-1.25-1.35-1.25-.82 0-1.36.54-1.36 1.25 0 .7.52 1.25 1.33 1.25h.02zm4.93 8.22V9.36c0-.21.02-.43.08-.58.17-.43.57-.88 1.23-.88.87 0 1.21.66 1.21 1.63v3.87h2.4V9.25c0-2.22-1.18-3.25-2.76-3.25-1.28 0-1.84.7-2.16 1.2v.03h-.01l.01-.03V6.17h-2.4c.03.68 0 7.23 0 7.23h2.4z"/></svg>
+                LinkedIn
+            </a>
+            <a href="mailto:umutciloglu06@gmail.com">
+                <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v.22l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2zm13 2.38-4.71 2.83L15 11.1V5.38zM14.97 12.25 9.4 8.82 8 9.66l-1.4-.84-5.57 3.43A1 1 0 0 0 2 13h12a1 1 0 0 0 .97-.75zM1 11.1l4.71-2.89L1 5.38v5.72z"/></svg>
+                umutciloglu06@gmail.com
+            </a>
         </div>
-    </div>
-
-    <div class="contact">
-
-        <h2 class="contact-h2">CONTACT</h2>
-        <div class="button-div">
-            <a href="mailto: umutciloglu06@gmail.com"><img src="mail.png" class="link-icon" style="width:50px;height:40px;"></a>
-            <a href="https://github.com/Cratoinyan"><img src="github.png" class="link-icon"style="width:50px;height:50px;"></a>
-            <a href="https://www.linkedin.com/in/umutciloglu/"><img src="linkedin.png" class="link-icon"style="width:50px;height:50px;"></a>
-        </div>
-    </div>
-
+    </main>
 </body>
 </html>
-<style>
-    .header{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        text-align: center;
-        height: 100vh;
-        width: 98vw;
-    }
-    .name{
-        font-weight: 600;
-        color:aliceblue;
-        font-size: 5vw;
-    }
-    .title{
-        font-weight:300;
-        color:aliceblue;
-        font-size: 2vw;
-    }
-
-
-    .about{
-        color:aliceblue;
-        height: 65vh;
-        width: 98vw;    
-    }
-
-    .profile-img-container{
-        text-align: center;
-        vertical-align: middle;
-        padding-top: 10vh;
-    }
-    
-    .about-div{
-        font-weight: 300;
-        text-align: center;
-        vertical-align: middle;
-        margin-top: 5vh;
-        margin-left: 3vw;
-        margin-right: 3vw;
-
-    }
-    .about-h2{
-        font-weight: 600;
-        font-size: 3vw;
-    }
-    .about-text{
-        font-size: 2vw ;
-    }
-
-    .profile-img {
-        border: 4px black solid;
-        width: 80%;
-    }
-
-    @media screen and (min-width: 600px) {
-        .profile-img-container {
-          width: 40%;
-          float: left;
-        }
-      }
-    
-      
-    .contact{
-        color:aliceblue;
-        height: 100vh;
-        width: 98vw;
-        text-align: center;
-    }
-
-    .contact-h2{
-        font-weight: 600;
-        margin: 0 ;
-        font-size: 3vw;
-        padding-top: 20vh;
-    }
-
-    .button-div{
-        /* margin-top: 25vh; */
-        text-align: center;
-    }
-    .link-icon{
-        padding: 5vw;
-    }
-
-    button{
-        margin: 4vh;
-    }
-
-
-    body{
-        font-family: 'Red Hat Mono', monospace;
-        background-color: rgb(18,18,18);
-        margin: 0;
-        padding: 0;
-    }
-
-    html {
-        font-size: 1em;
-        margin:0;
-        padding: 0;
-      }
-</style>
